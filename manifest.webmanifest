@@ -1,0 +1,16 @@
+{
+  "name": "Настасья — авторская мастерская",
+  "short_name": "Настасья",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#F7F1EA",
+  "theme_color": "#702D3B",
+  "icons": [
+    {
+      "src": "assets/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

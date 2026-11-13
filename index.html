@@ -1,0 +1,190 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#702D3B"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Настасья">
+<link rel="apple-touch-icon" href="assets/icon.png"><link rel="manifest" href="manifest.webmanifest">
+<title>Настасья</title>
+<style>
+@font-face{font-family:'EB Garamond Local';src:url('assets/fonts/eb-garamond-regular.ttf') format('truetype');font-weight:400 500; font-display:swap}
+@font-face{font-family:'EB Garamond Local';src:url('assets/fonts/eb-garamond-bold.ttf') format('truetype');font-weight:600 700; font-display:swap}
+@font-face{font-family:'Noto Sans Local';src:url('assets/fonts/noto-sans-regular.ttf') format('truetype');font-weight:400; font-display:swap}
+@font-face{font-family:'Noto Sans Local';src:url('assets/fonts/noto-sans-medium.ttf') format('truetype');font-weight:500 600; font-display:swap}
+@font-face{font-family:'Noto Sans Local';src:url('assets/fonts/noto-sans-bold.ttf') format('truetype');font-weight:700 800; font-display:swap}
+:root{
+ --wine:#672B3A;--wine2:#8C4656;--wine3:#A96873;
+ --cream:#F7F1EA;--rose:#E9D7D3;--gold:#B99A62;--gold2:#D8C49B;
+ --ink:#30262A;--muted:#887B7D;--line:#E9DED9;--paper:#FFFCF8;
+ --shadow:0 12px 32px rgba(69,39,45,.075);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;min-height:100vh;color:var(--ink);font-family:'Noto Sans Local',Arial,sans-serif;
+ background:
+  radial-gradient(ellipse at 8% 8%,rgba(218,190,183,.34),transparent 34%),
+  radial-gradient(ellipse at 94% 22%,rgba(197,169,124,.15),transparent 30%),
+  linear-gradient(145deg,#FBF8F3 0%,#F4ECE8 52%,#F8F3ED 100%);
+ padding-bottom:100px;overflow-x:hidden
+}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.24;z-index:-1;
+ background:linear-gradient(115deg,transparent 0 38%,rgba(255,255,255,.7) 49%,transparent 60%)}
+.app{max-width:620px;margin:auto;min-height:100vh}
+header{
+ position:relative;overflow:hidden;padding:calc(18px + env(safe-area-inset-top)) 19px 22px;
+ color:#FFF9F3;border-radius:0 0 30px 30px;
+ background:linear-gradient(118deg,#512330 0%,#713442 43%,#8B4D59 74%,#A87576 100%);
+ box-shadow:0 14px 34px rgba(73,34,45,.19);border-bottom:1px solid rgba(222,197,155,.42)
+}
+header:before{content:"";position:absolute;width:270px;height:270px;right:-110px;top:-155px;border-radius:50%;
+ background:radial-gradient(circle,rgba(255,255,255,.18),rgba(255,255,255,0) 68%)}
+header:after{content:"";position:absolute;left:20px;right:20px;bottom:0;height:1px;
+ background:linear-gradient(90deg,transparent,rgba(230,207,165,.8),transparent)}
+.brand{display:flex;align-items:center;gap:13px;position:relative;z-index:1}
+.logo{width:52px;height:52px;border-radius:17px;overflow:hidden;border:1px solid rgba(231,211,174,.85);
+ background:#f8f1e9;box-shadow:0 5px 16px #29141b55, inset 0 1px 0 #fff}
+.logo img{width:100%;height:100%;object-fit:cover}
+.brandname{font:600 34px/1 'EB Garamond Local',Georgia,serif;letter-spacing:.2px;text-shadow:0 2px 12px #2d151c55}
+.tag{font-size:9px;letter-spacing:2.3px;text-transform:uppercase;margin-top:6px;color:#F0DFD0}
+.motto{font-size:11px;letter-spacing:.15px;color:#F8EDE5;margin:15px 0 0;position:relative;z-index:1}
+main{padding:20px 16px 26px}
+.headline{font:600 31px/1.05 'EB Garamond Local',Georgia,serif;letter-spacing:.1px;margin:3px 0 6px;color:#3A2B30}
+.sub,.hint{font-size:12px;color:var(--muted);line-height:1.55}
+.sub{margin:0 0 17px}
+.card{
+ position:relative;background:linear-gradient(145deg,rgba(255,253,249,.96),rgba(255,249,245,.88));
+ border:1px solid rgba(225,210,201,.9);border-radius:21px;padding:16px;margin:13px 0;
+ box-shadow:0 9px 25px rgba(76,45,51,.055),inset 0 1px 0 rgba(255,255,255,.95);
+ transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease
+}
+.card:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+ background:linear-gradient(125deg,rgba(255,255,255,.48),transparent 42%);opacity:.75}
+.hero{
+ overflow:hidden;background:linear-gradient(128deg,#fffdf9 0%,#F7EBE8 48%,#F0E3D8 100%);
+ border:1px solid rgba(197,166,128,.48);padding:20px;
+ box-shadow:0 14px 30px rgba(93,49,58,.09),inset 0 1px 0 #fff
+}
+.hero:after{content:"";position:absolute;width:180px;height:180px;right:-75px;bottom:-105px;border-radius:50%;
+ background:radial-gradient(circle,rgba(185,154,98,.20),transparent 68%);pointer-events:none}
+.hero h2{font:600 28px/1.05 'EB Garamond Local',Georgia,serif;margin:0 0 7px;color:#542B36}
+.hero p{font-size:12px;color:#857477;margin:0 0 16px;line-height:1.55}
+button,input,select{font:inherit}button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.primary{
+ position:relative;overflow:hidden;width:100%;border:1px solid rgba(221,192,145,.5);border-radius:14px;padding:14px 16px;
+ background:linear-gradient(112deg,#642838 0%,#814151 54%,#98606A 100%);color:#FFFBF7;font-weight:800;font-size:12px;letter-spacing:.2px;
+ box-shadow:0 7px 17px rgba(91,39,54,.22),inset 0 1px 0 rgba(255,255,255,.19);
+ transition:transform .18s ease,box-shadow .18s ease,filter .18s ease
+}
+.primary:before{content:"";position:absolute;inset:0;transform:translateX(-120%);background:linear-gradient(100deg,transparent,rgba(255,255,255,.18),transparent);transition:transform .6s ease}
+.primary:active{transform:translateY(1px) scale(.99);box-shadow:0 3px 9px rgba(91,39,54,.2)}
+.primary:active:before{transform:translateX(120%)}
+.secondary{border:1px solid #DCCBC2;background:linear-gradient(145deg,#FFFEFB,#F7EFEB);color:var(--wine);border-radius:12px;padding:11px 13px;font-size:11px;font-weight:800;box-shadow:0 3px 9px rgba(75,43,48,.045),inset 0 1px 0 white;transition:.2s}
+.secondary:active{transform:scale(.985);background:#F4E8E4}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
+.tile{
+ position:relative;overflow:hidden;cursor:pointer;min-height:96px;padding:15px 14px;border-radius:18px;
+ background:linear-gradient(145deg,rgba(255,254,251,.98),rgba(248,240,235,.94));
+ border:1px solid #E6D9D2;box-shadow:0 7px 18px rgba(71,42,48,.055),inset 0 1px 0 white;
+ transition:transform .2s ease,box-shadow .2s ease
+}
+.tile:after{content:"";position:absolute;right:-27px;top:-35px;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,rgba(196,164,111,.16),transparent 70%)}
+.tile:active{transform:scale(.98);box-shadow:0 3px 10px rgba(71,42,48,.07)}
+.tile b{display:block;font-size:12px;margin-top:8px;color:#49363C;position:relative;z-index:1}
+.tile small{font-size:10px;color:var(--muted);position:relative;z-index:1}
+label{display:block;font-size:10px;font-weight:800;letter-spacing:.15px;color:#705E62;margin:13px 0 6px}
+input,select{
+ width:100%;padding:12px 12px;border:1px solid #E4D8D2;border-radius:12px;background:linear-gradient(145deg,#FFFEFC,#FBF7F3);
+ color:var(--ink);min-height:45px;font-size:12px;box-shadow:inset 0 1px 2px rgba(76,45,51,.025);
+ transition:border-color .2s,box-shadow .2s,background .2s
+}
+input::placeholder{color:#B5A9A7}
+input:focus,select:focus{outline:none;border-color:#B98F78;box-shadow:0 0 0 3px rgba(185,154,120,.16),inset 0 1px 2px rgba(76,45,51,.025);background:#fff}
+input[type=file]{padding:8px}
+.row{display:flex;gap:9px}.row>*{flex:1;min-width:0}
+.sectiontitle{font:600 25px/1.1 'EB Garamond Local',Georgia,serif;margin:22px 0 9px;color:#4A343B}
+.line{display:flex;justify-content:space-between;gap:8px;padding:9px 0;border-bottom:1px solid rgba(226,214,207,.8);font-size:11px;color:#6F6264}
+.line b{color:#47363B;font-weight:800}.line:last-child{border:0}
+.result{
+ position:relative;overflow:hidden;background:linear-gradient(135deg,#F2E5E2 0%,#FFF9F2 53%,#F1E6D9 100%);
+ border:1px solid rgba(190,157,111,.55);border-radius:21px;padding:17px;margin-top:13px;
+ box-shadow:0 12px 26px rgba(90,49,55,.09),inset 0 1px 0 rgba(255,255,255,.9)
+}
+.result:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.42),transparent 48%)}
+.result>*{position:relative}
+.result .hint:first-child{font-size:9px;font-weight:800;letter-spacing:1.2px;color:#876C62}
+.price{font:700 38px/1 'EB Garamond Local',Georgia,serif;color:#702D3B;margin:9px 0 13px;text-shadow:0 1px 0 white}
+.materialrow{display:grid;grid-template-columns:minmax(0,1fr) 76px 65px 30px;gap:5px;align-items:center;margin:9px 0}
+.materialrow input,.materialrow select{padding:8px 5px;font-size:10px;min-height:39px}
+.materialrow .hint{font-size:9px;text-align:right}
+.x{border:1px solid #E8D7D2;background:linear-gradient(145deg,#F9EFEC,#F1E3DF);color:var(--wine);border-radius:9px;height:33px;font-size:16px;box-shadow:0 2px 5px #542d370b}
+.tabs{
+ position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(620px,100%);display:grid;grid-template-columns:repeat(4,1fr);
+ padding:9px 6px calc(9px + env(safe-area-inset-bottom));background:rgba(255,252,248,.88);
+ -webkit-backdrop-filter:blur(20px) saturate(145%);backdrop-filter:blur(20px) saturate(145%);
+ border-top:1px solid rgba(219,203,194,.85);box-shadow:0 -8px 24px rgba(67,41,47,.07);z-index:5
+}
+.tab{border:0;background:none;color:#95878A;font-size:9px;font-weight:700;padding:3px 0;transition:color .2s,transform .2s}
+.tab span{display:block;font-size:19px;line-height:1.15;margin-bottom:4px;transition:transform .2s}
+.tab.active{color:var(--wine)}.tab.active span{transform:translateY(-2px);filter:drop-shadow(0 2px 3px rgba(103,43,58,.2))}
+.hidden{display:none!important}
+main section:not(.hidden){animation:screenIn .34s cubic-bezier(.2,.75,.25,1) both}
+@keyframes screenIn{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+.empty{text-align:center;padding:24px 14px;color:var(--muted);font-size:11px;line-height:1.6}
+.item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid rgba(226,214,207,.8);font-size:11px}
+.item:last-child{border:0}.item b{color:#49363C}.item small{font-size:10px;color:var(--muted)}
+.notice{background:linear-gradient(120deg,#F4ECE4,#F8F0EB);border:1px solid #E9DCCF;color:#79665C;border-radius:12px;padding:11px 12px;font-size:10px;line-height:1.55;margin-top:11px}
+.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%);background:linear-gradient(110deg,#4D2632,#75404B);color:#fffaf5;padding:11px 17px;border:1px solid rgba(213,184,140,.35);border-radius:30px;font-size:11px;z-index:10;box-shadow:0 8px 24px #35202740;animation:toastIn .25s ease both}
+@keyframes toastIn{from{opacity:0;transform:translate(-50%,8px)}to{opacity:1;transform:translate(-50%,0)}}
+details summary{cursor:pointer;list-style:none}details summary::-webkit-details-marker{display:none}
+.backup-card{background:linear-gradient(125deg,#F4E8E3 0%,#FFF9F2 62%,#F0E4D8 100%);border:1px solid rgba(185,154,98,.55)}
+.backup-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+.backup-main{background:linear-gradient(110deg,#8B6742,#B18A58);border-color:rgba(255,255,255,.35);box-shadow:0 7px 17px rgba(130,94,54,.2)}
+.backup-note{font-size:10px;line-height:1.5;color:#806D63;margin:8px 0 0}
+.restore-input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+@media(hover:hover){.card:hover{box-shadow:0 14px 32px rgba(69,39,45,.085);border-color:#E0CFC6}.tile:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(71,42,48,.09)}.primary:hover{filter:brightness(1.06);box-shadow:0 9px 22px rgba(91,39,54,.27)}}
+@media(max-width:380px){main{padding-left:12px;padding-right:12px}.card{padding:13px}.materialrow{grid-template-columns:minmax(0,1fr) 62px 55px 28px;gap:4px}.materialrow input,.materialrow select{font-size:9px}.headline{font-size:29px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style></head><body><div class="app">
+<header><div class="brand"><div class="logo"><img src="assets/icon.png" alt="Логотип Настасья"></div><div><div class="brandname">Настасья</div><div class="tag">авторская мастерская</div></div></div><p class="motto">Творчество, которому известна своя цена.</p></header>
+<main>
+<section id="home"><div class="headline">Добро пожаловать ✨</div><p class="sub">Ваш помощник в расчётах — просто и спокойно.</p>
+<div class="card hero"><h2>Посчитаем новое изделие?</h2><p>Материалы, время и расходы — в одном понятном расчёте.</p><button class="primary" onclick="page('calc')">＋ Новый расчёт</button></div>
+<div class="grid"><div class="tile" onclick="page('materials')">🧵<b>Материалы</b><small>Цены и закупки</small></div><div class="tile" onclick="page('products')">🎀<b>Мои изделия</b><small>Сохранённые расчёты</small></div><div class="tile" onclick="page('history')">🕰️<b>История</b><small>Предыдущие расчёты</small></div><div class="tile" onclick="page('settings')">⚙️<b>Настройки</b><small>Ставка и прибыль</small></div></div>
+<div class="card backup-card"><b>Резервная копия данных</b><p class="hint">Сохраните материалы, изделия и историю в файл. Это поможет перенести данные или восстановить их при смене телефона.</p><div class="backup-actions"><button class="primary backup-main" onclick="backup()">↓ Сохранить копию</button><button class="secondary" onclick="document.getElementById('restoreHome').click()">↑ Восстановить</button></div><input class="restore-input" id="restoreHome" type="file" accept="application/json,.json" onchange="restore(event)"><p class="backup-note">Рекомендуем делать копию после важных изменений. Данные хранятся на этом iPhone.</p></div>
+<div class="sectiontitle">Моя ставка</div><div class="card"><div class="hint">Стоимость часа по умолчанию</div><div class="price" id="homeRate">300 ₽</div><div class="hint">Можно изменить в любой момент.</div></div></section>
+<section id="calc" class="hidden"><div class="headline">Новый расчёт</div><p class="sub">Заполните основные поля. Остальное приложение посчитает само.</p>
+<div class="card"><label>Название изделия</label><input id="name" placeholder="Например, брошь «Жемчужная»"><label>Категория</label><select id="category"><option>Броши</option><option>Украшения</option><option>Кокошники</option><option>Свечи</option><option>Одежда и аксессуары</option><option>Декор</option><option>Другое</option></select><label>Количество одинаковых изделий</label><input id="qty" type="number" min="1" value="1"></div>
+<div class="card"><b>Материалы</b><div id="matrows"></div><button class="secondary" style="width:100%;margin-top:8px" onclick="addRow()">＋ Добавить материал</button><p class="hint">Новый материал можно добавить в разделе «Материалы».</p></div>
+<div class="card"><b>Время на изготовление всей партии</b><div class="row"><div><label>Часы</label><input id="hours" type="number" min="0" value="0"></div><div><label>Минуты</label><input id="mins" type="number" min="0" max="59" value="0"></div></div><label>Моя ставка за час, ₽</label><input id="rate" type="number" min="0" value="300"><p class="hint" id="labor">Работа: 0 ₽</p><div class="notice">Учитывайте только активное время. Ожидание высыхания или застывания не считается.</div></div>
+<div class="card"><b>Дополнительные расходы</b><label>Упаковка на всю партию, ₽</label><input id="pack" type="number" min="0" value="0"><label>Инструменты, электричество и прочее, ₽</label><input id="extra" type="number" min="0" value="0"></div>
+<div class="card"><b>Продажа</b><label>Канал продаж</label><select id="channel"><option value="direct">Напрямую</option><option value="social">Соцсети</option><option value="fair">Ярмарка</option><option value="marketplace">Маркетплейс</option><option value="wholesale">Опт</option></select><details><summary style="color:var(--wine);font-size:12px;font-weight:700;padding:5px 0">Дополнительные настройки цены</summary><div class="row"><div><label>Комиссия, %</label><input id="commission" type="number" min="0" value="0"></div><div><label>Налог, %</label><input id="tax" type="number" min="0" value="0"></div></div><label>Желаемая прибыль от цены, %</label><input id="margin" type="number" min="0" max="90" value="30"></details></div>
+<div class="result"><div class="hint">РЕКОМЕНДУЕМАЯ ЦЕНА ЗА 1 ШТУКУ</div><div class="price" id="price">0 ₽</div><div class="line"><span>Материалы на партию</span><b id="mtotal">0 ₽</b></div><div class="line"><span>Работа на партию</span><b id="ltotal">0 ₽</b></div><div class="line"><span>Другие расходы</span><b id="etotal">0 ₽</b></div><div class="line"><span>Себестоимость 1 шт.</span><b id="cost">0 ₽</b></div><div class="line"><span>Прибыль с 1 шт. после процентов</span><b id="profit">0 ₽</b></div><p class="hint" id="warning"></p></div><button class="primary" style="margin-top:12px" onclick="save()">Сохранить расчёт</button></section>
+<section id="materials" class="hidden"><div class="headline">Мои материалы</div><p class="sub">Добавьте закупку один раз — выбирайте её в следующих расчётах.</p><div class="card"><b>Новый материал</b><label>Название</label><input id="mn" placeholder="Например, бисер"><div class="row"><div><label>Цена упаковки, ₽</label><input id="mp" type="number" placeholder="350"></div><div><label>Количество в упаковке</label><input id="mq" type="number" placeholder="50"></div></div><label>Единица</label><select id="mu"><option>г</option><option>кг</option><option>мл</option><option>л</option><option>м</option><option>см</option><option>шт.</option><option>уп.</option></select><button class="primary" style="margin-top:12px" onclick="addMaterial()">Добавить материал</button></div><div class="sectiontitle">Список материалов</div><div class="card" id="matlist"></div></section>
+<section id="products" class="hidden"><div class="headline">Мои изделия</div><p class="sub">Ваши сохранённые расчёты и цены.</p><div class="card" id="productslist"></div></section>
+<section id="history" class="hidden"><div class="headline">История расчётов</div><p class="sub">Предыдущие расчёты с зафиксированными ценами материалов.</p><div class="card" id="historylist"></div></section>
+<section id="settings" class="hidden"><div class="headline">Настройки</div><p class="sub">Настройте один раз — дальше приложение подставит значения само.</p><div class="card"><label>Ставка за час, ₽</label><input id="sr" type="number" value="300"><label>Желаемая прибыль, %</label><input id="sm" type="number" value="30"><button class="primary" style="margin-top:12px" onclick="settingsSave()">Сохранить</button></div><div class="card"><b>Резервная копия</b><p class="hint">Сохраните материалы и расчёты в файл, чтобы не потерять данные.</p><button class="secondary" style="width:100%" onclick="backup()">Скачать копию данных</button><label>Восстановить копию</label><input type="file" accept="application/json" onchange="restore(event)"></div><div class="notice">Данные хранятся на этом устройстве. Регулярно сохраняйте резервную копию.</div></section>
+</main><nav class="tabs"><button class="tab active" data-id="home" onclick="page('home')"><span>⌂</span>Главная</button><button class="tab" data-id="calc" onclick="page('calc')"><span>＋</span>Расчёт</button><button class="tab" data-id="materials" onclick="page('materials')"><span>🧵</span>Материалы</button><button class="tab" data-id="products" onclick="page('products')"><span>🎀</span>Изделия</button></nav></div><script>
+const KEY='nastasya_pwa_v1';let db=JSON.parse(localStorage.getItem(KEY)||'null')||{materials:[],products:[],history:[],rate:300,margin:30};let last=null;const $=id=>document.getElementById(id),n=id=>Math.max(0,Number($(id).value)||0),rub=x=>new Intl.NumberFormat('ru-RU',{maximumFractionDigits:2}).format(x||0)+' ₽';function saveDB(){localStorage.setItem(KEY,JSON.stringify(db))}function msg(s){let t=document.createElement('div');t.className='toast';t.textContent=s;document.body.append(t);setTimeout(()=>t.remove(),2200)}
+function page(id){document.querySelectorAll('main section').forEach(s=>{s.classList.toggle('hidden',s.id!==id);if(s.id===id){s.style.animation='none';void s.offsetWidth;s.style.animation='';}});document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.id===id||(id==='history'&&b.dataset.id==='products')));if(id==='materials')drawMaterials();if(id==='products')drawProducts();if(id==='history')drawHistory();if(id==='calc'&&!document.querySelector('.materialrow'))addRow();window.scrollTo(0,0)}
+function addMaterial(){let name=$('mn').value.trim(),p=n('mp'),q=n('mq'),u=$('mu').value;if(!name||p<=0||q<=0){msg('Заполните название, цену и количество');return}db.materials.push({id:Date.now()+Math.random(),name,p,q,u,unitCost:p/q});saveDB();$('mn').value=$('mp').value=$('mq').value='';drawMaterials();msg('Материал добавлен')}
+function drawMaterials(){$('matlist').innerHTML=db.materials.length?db.materials.map(m=>`<div class="item"><span><b>${safe(m.name)}</b><br><small>${rub(m.p)} за ${m.q} ${m.u} · ${rub(m.unitCost)} за ${m.u}</small></span><button class="x" onclick="delMat(${m.id})">×</button></div>`).join(''):'<div class="empty">Пока нет материалов. Добавьте первую закупку.</div>'}
+function delMat(id){if(confirm('Удалить материал из списка? Старые расчёты сохранятся.')){db.materials=db.materials.filter(m=>m.id!==id);saveDB();drawMaterials()}}
+function addRow(){let d=document.createElement('div');d.className='materialrow';d.innerHTML=`<select><option value="">Материал</option>${db.materials.map(m=>`<option value="${m.id}">${safe(m.name)} (${rub(m.unitCost)}/${m.u})</option>`).join('')}</select><input type="number" min="0" placeholder="Расход"><span class="hint">0 ₽</span><button class="x">×</button>`;d.querySelector('button').onclick=()=>{d.remove();calc()};d.querySelectorAll('select,input').forEach(x=>x.addEventListener('input',calc));$('matrows').append(d);calc()}
+function calc(){let mt=0;document.querySelectorAll('.materialrow').forEach(r=>{let m=db.materials.find(x=>String(x.id)===r.querySelector('select').value),q=Number(r.querySelector('input').value)||0,c=m?m.unitCost*q:0;mt+=c;r.children[2].textContent=rub(c)});let qty=Math.max(1,n('qty')),hrs=n('hours')+n('mins')/60,lab=hrs*n('rate'),ex=n('pack')+n('extra'),unit=(mt+lab+ex)/qty,comm=n('commission')/100,tax=n('tax')/100,margin=n('margin')/100,den=1-comm-tax-margin,price=den>0?unit/den:0,profit=price*(1-comm-tax)-unit;$('labor').textContent='Стоимость работы: '+rub(lab);$('mtotal').textContent=rub(mt);$('ltotal').textContent=rub(lab);$('etotal').textContent=rub(ex);$('cost').textContent=rub(unit);$('price').textContent=den>0?rub(price):'Проверьте проценты';$('profit').textContent=rub(profit);$('warning').textContent=den<=0?'Сумма комиссии, налога и желаемой прибыли должна быть меньше 100%.':'';last={name:$('name').value.trim(),category:$('category').value,qty,mt,lab,ex,unit,price,profit,hrs,rate:n('rate'),channel:$('channel').value,commission:comm*100,tax:tax*100,margin:margin*100,materials:[...document.querySelectorAll('.materialrow')].map(r=>{let m=db.materials.find(x=>String(x.id)===r.querySelector('select').value);return m?{name:m.name,unit:m.u,unitCost:m.unitCost,qty:Number(r.querySelector('input').value)||0}:null}).filter(Boolean),date:new Date().toISOString()};return last}
+function save(){let r=calc();if(!r.name){msg('Добавьте название изделия');return}if(!r.price){msg('Проверьте проценты');return}db.products.unshift(r);db.history.unshift(r);saveDB();msg('Расчёт сохранён');page('products')}
+function drawProducts(){$('productslist').innerHTML=db.products.length?db.products.map(p=>`<div class="item"><span><b>${safe(p.name)}</b><br><small>${safe(p.category)} · ${p.hrs.toFixed(2)} ч</small></span><b style="color:var(--wine)">${rub(p.price)}</b></div>`).join(''):'<div class="empty">Сохранённые изделия появятся здесь.</div>'}
+function drawHistory(){$('historylist').innerHTML=db.history.length?db.history.map(p=>`<div class="item"><span><b>${safe(p.name)}</b><br><small>${new Date(p.date).toLocaleDateString('ru-RU')}</small></span><b>${rub(p.price)}</b></div>`).join(''):'<div class="empty">История пока пуста.</div>'}
+function settingsSave(){db.rate=n('sr');db.margin=n('sm');saveDB();$('rate').value=db.rate;$('margin').value=db.margin;$('homeRate').textContent=rub(db.rate);msg('Настройки сохранены')}
+async function backup(){
+ const payload={...db,_backupVersion:1,_app:'Настасья',_exportedAt:new Date().toISOString()};
+ const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+ const file=new File([blob],'nastasya-backup-'+new Date().toISOString().slice(0,10)+'.json',{type:'application/json'});
+ try{
+  if(navigator.canShare&&navigator.canShare({files:[file]})&&navigator.share){await navigator.share({title:'Резервная копия «Настасья»',text:'Резервная копия материалов и расчётов',files:[file]});msg('Резервная копия подготовлена');return}
+ }catch(err){if(err&&err.name==='AbortError')return}
+ const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=file.name;a.style.display='none';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);msg('Файл копии сохранён — проверьте «Файлы» на iPhone')
+}
+function restore(e){let f=e.target.files&&e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let x=JSON.parse(r.result);if(!x||!Array.isArray(x.materials)||!Array.isArray(x.history)||!Array.isArray(x.products))throw 0;db={materials:x.materials,products:x.products,history:x.history,rate:Number(x.rate)||300,margin:Number(x.margin)||30};saveDB();init();msg('Копия восстановлена')}catch{msg('Файл не похож на резервную копию «Настасья»')}finally{e.target.value=''}};r.onerror=()=>msg('Не удалось прочитать файл');r.readAsText(f)}
+function safe(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+document.querySelectorAll('#calc input,#calc select').forEach(x=>x.addEventListener('input',calc));
+function init(){$('rate').value=db.rate;$('margin').value=db.margin;$('sr').value=db.rate;$('sm').value=db.margin;$('homeRate').textContent=rub(db.rate);drawMaterials();drawProducts();drawHistory()}init();
+if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script></body></html>
